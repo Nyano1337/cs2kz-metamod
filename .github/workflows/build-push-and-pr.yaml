@@ -43,7 +43,7 @@ jobs:
       matrix:
         path:
           - check: 'src'
-            exclude: 'sdk'
+            exclude: 'sdk|protobuf'
     steps:
       - uses: actions/checkout@v4
       - uses: jidicula/clang-format-action@v4.13.0
