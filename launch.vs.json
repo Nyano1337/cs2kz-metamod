@@ -1,0 +1,83 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+	"configurations": [
+		{
+			"type": "cppgdb",
+			"debuggerConfiguration": "gdb",
+			"name": "Remote-KZ",
+			"project": "CMakeLists.txt",
+			"projectTarget": "cs2kz.so",
+			"program": "${env.CS2_BIN}",
+			"args": [
+				"-insecure",
+				"-dedicated",
+				"+game_mode 0",
+				"+game_type 0",
+				"+developer 5",
+				"+map de_dust2",
+				"+exec server.cfg",
+				"+sv_cheats 1"
+			]
+		},
+		{
+			"type": "dll",
+			"name": "Local-KZ",
+			"project": "CMakeLists.txt",
+			"exe": "${env.CS2_BIN}",
+			"debugType": "native",
+			"args": [
+				"-insecure",
+				"-dedicated",
+				"-sw_path addons/swiftlys2-plugins",
+				"-sw_logpath addons/swiftlys2-plugins/logs",
+				"-disable_workshop_command_filtering",
+				"+game_mode 3",
+				"+game_type 0",
+				"+map de_dust2",
+				"+developer 5",
+				"+sv_cheats 1",
+				"+host_workshop_map 3218634538"
+			]
+		},
+		{
+			"type": "dll",
+			"name": "Local-KZ2",
+			"project": "CMakeLists.txt",
+			"exe": "${env.CS2_BIN}",
+			"debugType": "native",
+			"args": [
+				"-insecure",
+				"-dedicated",
+				"-port 27016",
+				"-sw_path addons/swiftlys2-plugins",
+				"-sw_logpath addons/swiftlys2-plugins/logs",
+				"-disable_workshop_command_filtering",
+				"+game_mode 3",
+				"+game_type 0",
+				"+map de_dust2",
+				"+developer 5",
+				"+sv_cheats 1",
+				"+host_workshop_map 3214939683"
+			]
+		},
+		{
+			"type": "dll",
+			"name": "Local-KZ-T6",
+			"project": "CMakeLists.txt",
+			"exe": "${env.CS2_BIN}",
+			"debugType": "native",
+			"args": [
+				"-insecure",
+				"-dedicated",
+				"-disable_workshop_command_filtering",
+				"+game_mode 0",
+				"+game_type 0",
+				"+map de_dust2",
+				"+developer 5",
+				"+sv_cheats 1",
+				"+host_workshop_map 3461775578"
+			]
+		}
+	]
+}

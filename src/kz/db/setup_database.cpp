@@ -26,7 +26,13 @@ void KZDatabaseService::SetupDatabase()
 		SQLiteConnectionInfo info;
 		char path[MAX_PATH];
 		V_snprintf(path, sizeof(path), "addons/cs2kz/data/%s.sqlite3", config->GetString("database"));
+		CBufferStringGrowable<MAX_PATH> fullPathBuffer;
+		char directory[MAX_PATH];
+		V_ExtractFilePath(path, directory, MAX_PATH);
+		const char * testpath = g_pFullFileSystem->RelativePathToFullPath(directory, nullptr, fullPathBuffer);
+		//auto current_path = std::filesystem::current_path().string();
 		info.database = path;
+
 		databaseConnection = sqlInterface->GetSQLiteClient()->CreateSQLiteConnection(info);
 		databaseType = DatabaseType::SQLite;
 	}

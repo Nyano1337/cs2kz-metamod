@@ -1,5 +1,5 @@
 #include "messages.h"
-#include "version_gen.h"
+//#include "version_gen.h"
 
 bool KZ::api::messages::handshake::Hello::PlayerInfo::ToJson(Json &json) const
 {
@@ -8,7 +8,7 @@ bool KZ::api::messages::handshake::Hello::PlayerInfo::ToJson(Json &json) const
 
 bool KZ::api::messages::handshake::Hello::ToJson(Json &json) const
 {
-	return json.Set("plugin_version", PLUGIN_FULL_VERSION) && json.Set("plugin_version_checksum", this->checksum)
+	return json.Set("plugin_version", "") && json.Set("plugin_version_checksum", this->checksum)
 		   && json.Set("map", this->currentMapName) && json.Set("players", this->players);
 }
 

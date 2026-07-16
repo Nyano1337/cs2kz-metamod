@@ -176,11 +176,6 @@ void MovementPlayer::SetAngles(const QAngle &angles)
 		return;
 	}
 
-	// Don't change the pitch of the absolute angles because it messes with the player model.
-	QAngle absAngles = angles;
-	absAngles.x = 0;
-
-	pawn->Teleport(NULL, &absAngles, NULL);
 	g_pKZUtils->SnapViewAngles(pawn, angles);
 }
 

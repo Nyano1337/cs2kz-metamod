@@ -1,5 +1,5 @@
 #include "kz_style.h"
-#include "version_gen.h"
+//#include "version_gen.h"
 
 #define STYLE_NAME       "LegacyJump"
 #define STYLE_NAME_SHORT "LGJ"
@@ -15,7 +15,7 @@ public:
 public:
 	const char *GetAuthor()
 	{
-		return PLUGIN_AUTHOR;
+		return "";
 	}
 
 	const char *GetName()
@@ -30,17 +30,17 @@ public:
 
 	const char *GetURL()
 	{
-		return PLUGIN_URL;
+		return "";
 	}
 
 	const char *GetLicense()
 	{
-		return PLUGIN_LICENSE;
+		return "";
 	}
 
 	const char *GetVersion()
 	{
-		return PLUGIN_FULL_VERSION;
+		return "";
 	}
 
 	const char *GetDate()
@@ -50,7 +50,7 @@ public:
 
 	const char *GetLogTag()
 	{
-		return PLUGIN_LOGTAG;
+		return "";
 	}
 };
 

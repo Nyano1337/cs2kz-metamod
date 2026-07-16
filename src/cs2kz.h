@@ -3,7 +3,7 @@
 #include <string_view>
 
 #include "common.h"
-#include "version_gen.h"
+// #include "version_gen.h"
 
 class KZPlugin;
 extern KZPlugin g_KZPlugin;
@@ -22,32 +22,32 @@ public:
 public:
 	const char *GetAuthor()
 	{
-		return PLUGIN_AUTHOR;
+		return "";
 	}
 
 	const char *GetName()
 	{
-		return PLUGIN_DISPLAY_NAME;
+		return "";
 	}
 
 	const char *GetDescription()
 	{
-		return PLUGIN_DESCRIPTION;
+		return "";
 	}
 
 	const char *GetURL()
 	{
-		return PLUGIN_URL;
+		return "";
 	}
 
 	const char *GetLicense()
 	{
-		return PLUGIN_LICENSE;
+		return "";
 	}
 
 	const char *GetVersion()
 	{
-		return PLUGIN_FULL_VERSION;
+		return "";
 	}
 
 	const char *GetDate()
@@ -57,12 +57,14 @@ public:
 
 	const char *GetLogTag()
 	{
-		return PLUGIN_LOGTAG;
+		return "";
 	}
 
 	virtual void *OnMetamodQuery(const char *iface, int *ret) override;
 	virtual void OnPluginLoad(PluginId id) override;
 	virtual void OnPluginUnload(PluginId id) override;
+	virtual void OnLevelInit(char const *pMapName, char const *pMapEntities, char const *pOldLevel, char const *pLandmarkName, bool loadGame,
+							 bool background) override;
 
 	bool simulatingPhysics = false;
 	CGlobalVars serverGlobals;
@@ -71,10 +73,16 @@ public:
 private:
 	void UpdateSelfMD5();
 	char md5[33];
+	std::string m_sCurrentMap;
 
 public:
 	std::string_view GetMD5()
 	{
 		return md5;
+	}
+
+	std::string_view GetCurrentMap()
+	{
+		return m_sCurrentMap;
 	}
 };
